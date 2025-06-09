@@ -827,6 +827,7 @@ async def generate_chat_completion(
         headers["Authorization"] = f"Bearer {key}"
 
     payload = json.dumps(payload)
+    log.info(f"[JACKTEST] {request_url}  {payload}")
 
     r = None
     session = None
