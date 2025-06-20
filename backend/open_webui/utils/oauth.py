@@ -147,6 +147,9 @@ class OAuthManager:
     def update_user_groups(self, user, user_data, default_permissions):
         log.debug("Running OAUTH Group management")
         oauth_claim = auth_manager_config.OAUTH_GROUPS_CLAIM
+        log.info(f"[OAUTH_DEBUG] Attempting group sync for user: {user.email}")
+        log.info(f"[OAUTH_DEBUG] Using OAUTH_GROUPS_CLAIM: '{oauth_claim}'")
+        log.info(f"[OAUTH_DEBUG] Full user_data from OIDC provider: {json.dumps(user_data, indent=2)}")
 
         try:
             blocked_groups = json.loads(auth_manager_config.OAUTH_BLOCKED_GROUPS)
